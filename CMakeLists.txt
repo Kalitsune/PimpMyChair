@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(untitled)
+project(PimpMyChair)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_AUTOMOC ON)
@@ -10,7 +10,7 @@ set(QT_VERSION 6)
 set(REQUIRED_LIBS Core Gui Widgets)
 set(REQUIRED_LIBS_QUALIFIED Qt6::Core Qt6::Gui Qt6::Widgets)
 
-add_executable(${PROJECT_NAME} main.cpp Window.cpp Window.h)
+add_executable(${PROJECT_NAME} WIN32 main.cpp BuildWindow.cpp BuildWindow.h)
 
 if (NOT CMAKE_PREFIX_PATH)
     message(WARNING "CMAKE_PREFIX_PATH is not defined, you may need to set it "
@@ -49,6 +49,6 @@ if (WIN32)
                 "$<TARGET_FILE_DIR:${PROJECT_NAME}>")
     endforeach (QT_LIB)
 endif ()
-
+file(COPY Assets DESTINATION ${CMAKE_BINARY_DIR})
 
 
